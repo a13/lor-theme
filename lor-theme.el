@@ -21,7 +21,7 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
 
-;;; Commentary
+;;; Commentary:
 
 ;; The colors in this theme come from the Tango palette, which is in
 ;; the public domain: http://tango.freedesktop.org/
@@ -46,9 +46,12 @@ Semantic, and Ansi-Color faces are included.")
       (lor-regexp "#e9c062")
       (lor-class "#fff")
       (lor-preprocessor "#c6c5fe")
-      (lor-hexcolor "#c6c5fe")
       (lor-number "#ff73fd")
       (lor-deletion "#dc322f")
+      (lor-background "#2e3436")
+      (lor-article-background "#272C2D")
+      (lor-link "#729fcf")
+      (lor-body "#babdb6")
       ;; Tango palette colors.
       (butter-1 "#fce94f") (butter-2 "#edd400") (butter-3 "#c4a000")
       (orange-1 "#fcaf3e") (orange-2 "#f57900") (orange-3 "#ce5c00")
@@ -67,7 +70,7 @@ Semantic, and Ansi-Color faces are included.")
    'lor
    ;; Ensure sufficient contrast on low-color terminals.
    `(default ((((class color) (min-colors 4096))
-	       (:foreground ,alum-1 :background ,alum-6))
+	       (:foreground ,lor-code :background ,lor-background))
 	      (((class color) (min-colors 256))
 	       (:foreground ,alum-1 :background "#222"))
 	      (,class
@@ -84,10 +87,10 @@ Semantic, and Ansi-Color faces are included.")
    ;; Mode line faces
    `(mode-line ((,class
 		 (:box (:line-width -1 :style released-button)
-		  :background ,alum-2 :foreground ,alum-6))))
+		       :background ,alum-2 :foreground ,alum-6))))
    `(mode-line-inactive ((,class
 			  (:box (:line-width -1 :style released-button)
-			   :background ,alum-5 :foreground ,alum-1))))
+			        :background ,alum-5 :foreground ,alum-1))))
    `(compilation-mode-line-fail ((,class (:foreground ,red-3))))
    `(compilation-mode-line-run  ((,class (:foreground ,orange-3))))
    `(compilation-mode-line-exit ((,class (:foreground ,cham-3))))
@@ -96,30 +99,31 @@ Semantic, and Ansi-Color faces are included.")
    `(escape-glyph ((,class (:foreground ,butter-3))))
    `(homoglyph ((,class (:foreground ,butter-3))))
    `(error ((,class (:foreground ,red-0))))
-   `(warning ((,class (:foreground ,orange-1))))
+   `(warning ((,class (:foreground ,lor-title))))
    `(success ((,class (:foreground ,cham-1))))
    ;; Font lock faces
-   `(font-lock-builtin-face ((,class (:foreground ,plum-1))))
-   `(font-lock-comment-face ((,class (:foreground ,cham-2))))
-   `(font-lock-constant-face ((,class (:foreground ,plum-0))))
-   `(font-lock-function-name-face ((,class (:foreground ,butter-1))))
-   `(font-lock-keyword-face ((,class (:foreground ,cham-0))))
-   `(font-lock-string-face ((,class (:foreground ,choc-1))))
-   `(font-lock-type-face ((,class (:foreground ,blue-0))))
-   `(font-lock-variable-name-face ((,class (:foreground ,orange-1))))
+   `(font-lock-builtin-face ((,class (:foreground ,lor-keyword))))
+   `(font-lock-comment-face ((,class (:foreground ,lor-comment))))
+   `(font-lock-constant-face ((,class (:foreground ,lor-preprocessor))))
+   `(font-lock-function-name-face ((,class (:foreground ,lor-function))))
+   `(font-lock-keyword-face ((,class (:foreground ,lor-keyword))))
+   `(font-lock-string-face ((,class (:foreground ,lor-string))))
+   `(font-lock-type-face ((,class (:foreground ,lor-haskelltype))))
+   `(font-lock-variable-name-face ((,class (:foreground ,lor-title))))
+   `(font-lock-preprocessor-face ((,class (:foreground ,lor-preprocessor))))
    ;; Button and link faces
    `(link ((,class (:underline t :foreground ,blue-1))))
    `(link-visited ((,class (:underline t :foreground ,blue-2))))
    ;; Gnus faces
-   `(gnus-group-news-1 ((,class (:foreground ,plum-1))))
+   `(gnus-group-news-1 ((,class (:foregr ound ,plum-1))))
    `(gnus-group-news-1-low ((,class (:foreground ,plum-2))))
    `(gnus-group-news-2 ((,class (:foreground ,blue-1))))
    `(gnus-group-news-2-low ((,class (:foreground ,blue-2))))
    `(gnus-group-news-3 ((,class (:foreground ,cham-1))))
-   `(gnus-group-news-3-low ((,class (:foreground ,cham-2))))
+   `(gnus-group-news-3-low ((,class (:foreground ,lor-comment))))
    `(gnus-group-news-4 ((,class (:foreground ,plum-0))))
    `(gnus-group-news-4-low ((,class (:foreground ,choc-2))))
-   `(gnus-group-news-5 ((,class (:foreground ,orange-1))))
+   `(gnus-group-news-5 ((,class (:foreground ,lor-title))))
    `(gnus-group-news-5-low ((,class (:foreground ,orange-2))))
    `(gnus-group-news-low ((,class (:foreground ,butter-2))))
    `(gnus-group-mail-1 ((,class (:foreground ,plum-1))))
@@ -127,7 +131,7 @@ Semantic, and Ansi-Color faces are included.")
    `(gnus-group-mail-2 ((,class (:foreground ,blue-1))))
    `(gnus-group-mail-2-low ((,class (:foreground ,blue-2))))
    `(gnus-group-mail-3 ((,class (:foreground ,cham-1))))
-   `(gnus-group-mail-3-low ((,class (:foreground ,cham-2))))
+   `(gnus-group-mail-3-low ((,class (:foreground ,lor-comment))))
    `(gnus-group-mail-low ((,class (:foreground ,butter-2))))
    `(gnus-header-content ((,class (:weight normal :foreground ,butter-3))))
    `(gnus-header-from ((,class (:foreground ,butter-2))))
@@ -154,11 +158,11 @@ Semantic, and Ansi-Color faces are included.")
    `(ediff-even-diff-B ((,class (:background ,alum-5.5))))
    `(ediff-odd-diff-B ((,class (:background ,alum-5.5))))
    ;; Flyspell faces
-   `(flyspell-duplicate ((,class (:underline ,orange-1))))
+   `(flyspell-duplicate ((,class (:underline ,lor-title))))
    `(flyspell-incorrect ((,class (:underline ,red-1))))
    ;; Realgud
    `(realgud-overlay-arrow1  ((,class (:foreground "green"))))
-   `(realgud-overlay-arrow2  ((,class (:foreground ,orange-1))))
+   `(realgud-overlay-arrow2  ((,class (:foreground ,lor-title))))
    `(realgud-overlay-arrow3  ((,class (:foreground ,plum-0))))
    `(realgud-bp-disabled-face      ((,class (:foreground ,blue-3))))
    `(realgud-bp-line-enabled-face  ((,class (:underline "red"))))
@@ -177,7 +181,23 @@ Semantic, and Ansi-Color faces are included.")
    `(semantic-decoration-on-unparsed-includes
      ((,class (:background ,alum-5.5))))
    `(semantic-tag-boundary-face ((,class (:overline ,blue-1))))
-   `(semantic-unmatched-syntax-face ((,class (:underline ,red-1)))))
+   `(semantic-unmatched-syntax-face ((,class (:underline ,red-1))))
+   `(hl-line ((,class (:inherit highlight))))
+   `(highlight-numbers-number ((,class (:foreground ,lor-number))))
+   `(variable-pitch ((,class (:background ,lor-article-background :foreground ,lor-body))))
+   `(fixed-pitch ((,class (:background ,lor-background))))
+   `(fixed-pitch-serif ((,class (:background ,lor-background))))
+   `(org-block ((,class (:inherit fixed-pitch))))
+   `(org-document-info ((,class (:foreground "dark orange"))))
+   `(org-document-info-keyword ((,class (:inherit (shadow fixed-pitch)))))
+   `(org-link ((,class (:foreground ,lor-link :underline t))))
+   `(org-meta-line ((,class (:inherit (font-lock-comment-face fixed-pitch)))))
+   `(org-property-value ((,class (:inherit fixed-pitch))) t)
+   `(org-special-keyword ((,class (:inherit (font-lock-comment-face fixed-pitch)))))
+   `(org-tag ((,class (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+   `(org-verbatim ((,class (:inherit (shadow fixed-pitch))))))
+
+
 
   (custom-theme-set-variables
    'lor
