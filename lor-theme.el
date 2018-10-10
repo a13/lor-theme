@@ -204,6 +204,7 @@ Semantic, and Ansi-Color faces are included.")
    `(ansi-color-names-vector [,alum-7 ,red-0 ,cham-0 ,butter-1
 			      ,blue-1 ,plum-1 ,blue-0 ,alum-1])))
 
+;;;###autoload
 (and load-file-name
      (boundp 'custom-theme-load-path)
      (add-to-list 'custom-theme-load-path
