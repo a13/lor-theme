@@ -1,4 +1,6 @@
 https://linux.org.ru inspired theme (tango-dark based)
+
+[[./lor-theme.png]]
 * Installation
   using Quelpa
   #+BEGIN_SRC emacs-lisp
