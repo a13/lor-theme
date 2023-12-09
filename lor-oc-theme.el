@@ -126,8 +126,8 @@ Semantic, and Ansi-Color faces are included.")
    `(rainbow-identifiers-identifier-15 ((,class (:foreground ,open-color-lime-1))))
 
    ;; Button and link faces
-   `(link ((,class (:underline t :foreground ,open-color-blue-9))))
-   `(link-visited ((,class (:underline t :foreground ,open-color-blue-4))))
+   `(link ((,class (:underline t :foreground ,open-color-blue-3))))
+   `(link-visited ((,class (:underline t :foreground ,open-color-violet-3))))
 
    ;; Gnus faces
    `(gnus-group-news-1 ((,class (:foregr ound ,open-color-grape-3))))
