@@ -1,10 +1,14 @@
-;;; lor-theme-oc.el --- Open color based theme
+;;; lor-oc-theme.el --- Open color based theme inspired by tango
 
 ;; Copyright (C) 2010-2018 Free Software Foundation, Inc.
 
 ;; Authors: Chong Yidong <cyd@stupidchicken>
 ;;          Jan Moringen <jan.moringen@uni-bielefeld.de>
 ;;          Dmitry K.
+
+;; Homepage: https://github.com/a13/lor-theme
+;; Package-Version: 0.0.1
+;; Package-Requires: ((open-color "0.0.1"))
 
 ;; This file is part of GNU Emacs.
 
@@ -29,7 +33,7 @@
 ;;; Code:
 
 (require 'open-color)
-"sdfsdfdsf"
+
 (deftheme lor-oc
   "Face colors using the Tango palette (dark background).
 Basic, Font Lock, Isearch, Gnus, Message, Ediff, Flyspell,

@@ -8,7 +8,7 @@ https://linux.org.ru inspired theme (tango-dark based)
       :ensure nil
       :custom-face
       (variable-pitch ((t (:family "Serif"))))
-      (fixed-pitch ((t (:family "Monospace"))))
+      (fixed-pitch ((t (:family "Consolas-15"))))
       :config
       (load-theme 'lor)
       :quelpa
